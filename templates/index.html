@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button {
+            background: #007bff;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+        .theme-toggle {
+            margin-top: 20px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            background: gray;
+            color: white;
+        }
+        #chatbox {
+            display: none;
+            width: 90%;
+            max-width: 500px;
+            height: 400px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            position: relative;
+        }
+        #messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 10px;
+        }
+        .message {
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px 0;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .user {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+        }
+        .bot {
+            background-color: #e0e0e0;
+            align-self: flex-start;
+        }
+        .input-container {
+            width: 90%;
+            max-width: 520px;
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            bottom: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="home">
+        <h1>Welcome to Mental Health Chatbot</h1>
+        <p>Your personal AI companion for emotional well-being.</p>
+        <button class="button" onclick="startChat()">Start Chat</button>
+        <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    </div>
+
+    <div id="chatbox">
+        <h3>Mental Health Chatbot</h3>
+        <div id="messages"></div>
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function startChat() {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("chatbox").style.display = "flex";
+        }
+
+        function toggleTheme() {
+            let body = document.body;
+            if (body.style.backgroundColor === "black") {
+                body.style.backgroundColor = "#f0f2f5";
+                body.style.color = "black";
+            } else {
+                body.style.backgroundColor = "black";
+                body.style.color = "white";
+            }
+        }
+    </script>
+</body>
+</html>
